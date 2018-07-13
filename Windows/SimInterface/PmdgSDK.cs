@@ -209,8 +209,8 @@ namespace MipPanels_PMDG
             [MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)] public byte[] AIR_annunWingBodyOverheat;
             [MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)] public byte[] AIR_annunBleedTripOff;
 
-            public uint AIR_FltAltWindow;
-            public uint AIR_LandAltWindow;
+            public int AIR_FltAltWindow;
+            public int AIR_LandAltWindow;
             public uint AIR_OutflowValveSwitch; // 0=CLOSE  1=NEUTRAL  2=OPEN
             public uint AIR_PressurizationModeSelector; // 0=AUTO  1=ALTN  2=MAN
 
@@ -435,6 +435,50 @@ namespace MipPanels_PMDG
             public float FMC_DistanceToDest; // nm; negative if n/a
             [MarshalAs(UnmanagedType.ByValArray, SizeConst = 9)] public byte[] FMC_flightNumber;
 
+            // New variables for SP2
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 3)]
+            public uint[] COMM_ReceiverSwitches;          // Bit flags for selector receivers (see ACP_SEL_RECV_VHF1 etc): [0]=Capt, [1]=FO, [2]=Overhead
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
+            public byte[] MAIN_annunAP_Amber;
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
+            public byte[] MAIN_annunAT_Amber;
+            public byte ICE_WindowHeatTestSw;
+            public byte DOOR_annunFWD_ENTRY;
+            public byte DOOR_annunFWD_SERVICE;
+            public byte DOOR_annunAIRSTAIR;
+            public byte DOOR_annunLEFT_FWD_OVERWING;
+            public byte DOOR_annunRIGHT_FWD_OVERWING;
+            public byte DOOR_annunFWD_CARGO;
+            public byte DOOR_annunEQUIP;
+            public byte DOOR_annunLEFT_AFT_OVERWING;
+            public byte DOOR_annunRIGHT_AFT_OVERWING;
+            public byte DOOR_annunAFT_CARGO;
+            public byte DOOR_annunAFT_ENTRY;
+            public byte DOOR_annunAFT_SERVICE;
+            public byte AIR_annunAUTO_FAIL;
+            public byte AIR_annunOFFSCHED_DESCENT;
+            public byte AIR_annunALTN;
+            public byte AIR_annunMANUAL;
+            public float AIR_CabinAltNeedle; 
+            public float AIR_CabinDPNeedle; 
+            public float AIR_CabinVSNeedle;
+            public float AIR_CabinValveNeedle;
+            public float AIR_TemperatureNeedle;
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
+            public float[] AIR_DuctPressNeedle;
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 13)]
+            public char[] ELEC_MeterDisplayTop;
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 13)]
+            public char[] ELEC_MeterDisplayBottom;
+            
+            //the following two variables cause exception 29 and 9 for unknown reason
+            //
+            //[MarshalAs(UnmanagedType.ByValArray, SizeConst = 7)]
+            //public char[] IRS_DisplayLeft;
+            //[MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
+            //public char[] IRS_DisplayRight;
+            
+            public byte IRS_DisplayShowsDots;			// True if the degrees and decimal dot symbols are shown on the IRS display
 
 
             // The rest of the controls and indicators match their standard FSX counterparts
